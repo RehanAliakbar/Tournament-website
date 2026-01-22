@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
   </head>
   <body class="dark">
     <!-- Animated Background -->
@@ -11,28 +12,135 @@
     <div class="grid-pattern"></div>
     <!-- Navigation -->
     <nav class="fixed w-full z-50 py-4 px-6 border-b border-gray-800/30">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <!-- Logo -->
-        <a href="#home" class="flex items-center space-x-3 group">
-          <div
-            class="logo-container w-12 h-12 rounded-full flex items-center justify-center"
-          >
-            <div
-              class="w-10 h-10 rounded-full flex items-center justify-center z-10"
-            >
-              <i class="fas fa-crown text-white text-xl"></i>
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="logo-container w-12 h-12 rounded-full flex items-center justify-center">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center z-10">
+                        <i class="fas fa-crown text-white text-xl"></i>
+                    </div>
+                </div>
+                <h1 class="text-2xl font-orbitron font-bold gradient-text group-hover:scale-105 transition-transform duration-300">NEXUS</h1>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#home" class="font-exo font-semibold text-gray-300 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                    Home
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#tournaments" class="font-exo font-semibold text-gray-300 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                    Tournaments
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#brackets" class="font-exo font-semibold text-gray-300 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                    Brackets
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#teams" class="font-exo font-semibold text-gray-300 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                    Teams
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#leaderboard" class="font-exo font-semibold text-gray-300 hover:text-primary transition-all duration-300 hover:scale-105 relative group">
+                    Leaderboard
+                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <button class="btn-neon px-6 py-2.5 bg-gradient-to-r from-primary to-secondary rounded-lg font-exo font-bold text-white">
+                    Join Now
+                </button>
+                
+                <!-- Notification Bell -->
+                <div class="relative">
+                    <button class="w-10 h-10 rounded-full bg-dark-card flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <i class="fas fa-bell text-gray-300"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
             </div>
-          </div>
-          <h1
-            class="text-2xl  font-bold  gradient-text group-hover:scale-105 transition-transform duration-300 color" 
-          >
-            NEXUS
-          </h1>
-        </a>
-        <!-- Dekstop-Menu -->
-      </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="lg:hidden text-2xl w-10 h-10 rounded-full bg-dark-card flex items-center justify-center hover:bg-primary/20 transition-colors">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-dark/95 backdrop-blur-md border-b border-gray-800 hidden">
+            <div class="flex flex-col p-6 space-y-4">
+                <a href="#home" class="font-exo font-semibold text-gray-300 hover:text-primary py-3 border-b border-gray-800/50">Home</a>
+                <a href="#tournaments" class="font-exo font-semibold text-gray-300 hover:text-primary py-3 border-b border-gray-800/50">Tournaments</a>
+                <a href="#brackets" class="font-exo font-semibold text-gray-300 hover:text-primary py-3 border-b border-gray-800/50">Brackets</a>
+                <a href="#teams" class="font-exo font-semibold text-gray-300 hover:text-primary py-3 border-b border-gray-800/50">Teams</a>
+                <a href="#leaderboard" class="font-exo font-semibold text-gray-300 hover:text-primary py-3 border-b border-gray-800/50">Leaderboard</a>
+                <button class="btn-neon px-6 py-3.5 bg-gradient-to-r from-primary to-secondary rounded-lg font-exo font-bold text-white mt-4">
+                    Join Now
+                </button>
+            </div>
+        </div>
     </nav>
 
+                              <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+          <!-- Three.js Background Placeholder -->
+           <div id="threejs-background" class="absolute inset-0 z-0"></div>
+           <!-- Animated Background Elements -->
+            <div class="absolute inset-0 overflow-hidden">
+              <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary/10 blur-3xl animate-pulse-slow"></div>
+              <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-primary/10 blur-3xl animate-pulse-slow animation-delay-2000"></div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10">
+              <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                 <div class="text-center lg:text-left animate-on-scroll" data-aos="fade-right">
+                  <div class="inline-block px-4 py-2 rounded-full bg-primary/20 border border-primary/30 mb-6 animate-on-scroll" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-sm font-exo font-bold text-primary flex items-center">
+                      <div class="w-2 h-2 bg-primary rounded-full animate-ping mr-2"></div>
+                      MAJOR TOURNAMENT LIVE
+                    </span>
+                  </div>
+                  <h1 class="hero-title text-5xl md:text-6xl lg:text-7xl font-orbitron font-bold leading-tight mb-6">
+                    <span class="block text-shadow">BATTLE FOR</span>
+                    <span class="glitch-text bg-gradient-to-r from-primary via-pink-500 to-secondary bg-clip-text text-transparent" data-text="GLORY">GLORY</span>
+                  </h1>
+
+                  <p class="text-xl text-gray-300 mb-8 font-exo max-w-xl mx-auto lg:mx-0 animate-on-scroll" data-aos="fade-up" data-aos-delay="200">
+                    Join the ultimate esports arena. Compete in high-stakes tournaments, climb the leaderboards, and claim your place among gaming legends.
+                  </p>
+                  <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-on-scroll" data-aos="fade-up" data-aos-delay="300">
+                    <button class="btn-neon px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-xl font-exo font-bold text-lg text-white">
+                      <i class="fas fa-play-circle mr-2"></i>Join Tournament
+                    </button>
+                    <button class="px-8 py-4 border-2 border-primary/50 rounded-xl font-exo font-bold text-lg hover:bg-primary/10 transition-all duration-300 hover:lift">
+                      <i class="fas fa-trophy mr-2"></i>View Prizes
+                    </button>
+                  </div>
+                                                     <!-- Live stats -->
+                      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 animate-on-scroll" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-center">
+                        <div class="start-counter mb-2" id="live-players">0</div>
+                        <div class="text-gray-400 font-exo">Live Players</div>
+                      </div>
+                      <div class="text-center">
+                        <div class="start-counter mb-2" id="active-tournaments">0</div>
+                        <div class="text-gray-400 font-exo">Active Tournaments</div>
+                        </div>
+                      <div class="text-center">
+                        <div class="start-counter mb-2" id="total-prize">$0</div>
+                        <div class="text-gray-400 font-exo">Total Prize Pool</div>
+                        </div>
+                      <div class="text-center">
+                        <div class="start-counter mb-2" id="teams-registered">0</div>
+                        <div class="text-gray-400 font-exo">Teams Registered</div>
+                        </div>
+                      </div>
+                 </div>
+                 <!-- Hero VIsual -->
+              </div>
+            </div>
+        </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
