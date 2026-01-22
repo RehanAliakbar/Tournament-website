@@ -1,1 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Exo:wght@400;600&family=Rajdhani:wght@400;600&display=swap');
+
+
+
+
 @import "tailwindcss";
+
+@theme {
+  --color-primary: #8b5cf6;
+  --color-secondary: #3b82f6;
+  --color-accent: #f59e0b;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-dark: #0f172a;
+  --color-dark-card: #1e293b;
+  --color-darker: #0a101f;
+
+  --font-orbitron: 'Orbitron', sans-serif;
+  --font-exo:'Exo', sans-serif;
+  --font-rajdhani:'Rajdhani', sans-serif;
+}
+
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 3s ease-in-out infinite;
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow{
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-in-out ;
+  }
+
+  .animate-slide-down {
+    animation: slide-down 0.5s ease-in-out ;
+  }
+
+  .animate-fade-in {
+    animation: fade-in .8s ease-in-out ;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s  infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .animate-typing {
+    animation: typing 3.5s steps(40, end) ;
+  }
+  .animate-blink-caret {
+    animation: blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    0%, 100% {
+      border-color: transparent;
+    }
+    51%, 100% {
+      border-color:red;
+    }
+    
+  }
+
+  @keyframes float {
+    0%,100%{
+      transform: translateY(0);
+    }50%{
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes glow {
+    0%,100%{
+      opacity: 1;
+    }50%{
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes slide-up {
+    0%{
+      transform: translateY(20px);
+      opacity: 0;
+    }100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-down {
+    0%{
+      transform: translateY(-20px);
+      opacity: 0;
+    }100%{
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in {
+    0%{
+      opacity: 0;
+    }100%{
+      opacity: 1;
+    }
+  }
+
+  @keyframes shimmer {
+    0%{
+      background-position: -200% 0;
+    }100%{
+      background-position: 200% 0;
+    }
+  }
+
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+}
+
+:root{
+  --neon-purple: #8b5cf6;
+  --neon-blue: #3b82f6;
+  --neon-pink: #ec4899;
+  --neon-green: #10b981;
+  --neon-cyan: #06b6d4;
+  --neon-yellow: #f59e0b;
+  --dark-bg: #0a101f;
+  --darker-bg: #0a101f;
+  --card-bg: #1e293b;
+  --track:#1a2235;
+
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@layer base{
+
+  html{
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body{
+    background: var(--dark-bg);
+    color: #fff;
+    overflow-x: hidden;
+    font-family: exo, sans-serif;
+    position: relative;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--track);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--neon-purple),var(--neon-blue));
+    border-radius: 10px;
+    border-radius: 10px;
+    border: 3px solid var(--track);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--neon-blue),var(--neon-cyan));
+  }
+
+}
+
+@layer utilities{
+  .animated-bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+  }
+
+  .animated-bg::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: 
+    radial-gradient( circle at 20% 30%, rgba(139, 92,246,.05) 0%, transparent 50% ),
+    radial-gradient(circle at 70% 80%, rgba(59, 130, 246,.05), 0% transparent 50%), 
+    radial-gradient(circle at 40% 80%, rgba(245, 158, 11, .05) 0% transparent 50%)
+  }
+
+  /* Grid Pattern overlay */
+
+  .grid-pattern{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: linear-gradient(rgba(255,255,255,.03) 1px transparent 1px) ,
+    linear-gradient(rgba(255,255,255,.03) 1px transparent 1px);
+    background-size: 50px 50px;
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+    -webkit-mask--image: radial-gradient(circle at center, black, transparent 80%);
+  }
+
+  
+
+}
