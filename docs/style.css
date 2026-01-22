@@ -143,6 +143,8 @@
   --card-bg: #1e293b;
   --track:#1a2235;
 
+  --trannstion:all .3s cubic-bezier(.4,0,.2,1);
+
 }
 
 *{
@@ -227,6 +229,367 @@
     -webkit-mask--image: radial-gradient(circle at center, black, transparent 80%);
   }
 
+  .logo-container{
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .logo-container::after{
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(139,92,246,.4),transparent 30%);
+    animation: spin-slow 3s linear infinite;
+  }
+
+  .btn-neon{
+    position: relative;
+    overflow: hidden;
+    transition: all .3s ease;
+    z-index: 1;
+  }
+
+  .btn-neon::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.2));
+  }
+
+  .btn-neon:hover::before{
+    left: 100%;
+  }
+
+  /* Hero section */
+
+  .hero-title{
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-title::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: typing 1.5s ease forwards .5s;
+  }
+  /* glitch text */
+
+  .glitch-text{
+    position: relative;
+    animation: glitch 5s infinite;
+  }
+
+  .glitch-text::after, .glitch-text::before{
+    content: attr(datd-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .glitch-text::after{
+    left: -2px;
+    text-shadow: -2px 0 #00ffff;
+    clip: rect(24px, 550px, 90px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  .glitch-text::after{
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(24px, 550px, 140px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+            0% { clip: rect(42px, 9999px, 44px, 0); }
+            5% { clip: rect(12px, 9999px, 59px, 0); }
+            10% { clip: rect(48px, 9999px, 29px, 0); }
+            15% { clip: rect(42px, 9999px, 73px, 0); }
+            20% { clip: rect(63px, 9999px, 27px, 0); }
+            25% { clip: rect(34px, 9999px, 55px, 0); }
+            30% { clip: rect(86px, 9999px, 73px, 0); }
+            35% { clip: rect(20px, 9999px, 20px, 0); }
+            40% { clip: rect(26px, 9999px, 60px, 0); }
+            45% { clip: rect(25px, 9999px, 66px, 0); }
+            50% { clip: rect(57px, 9999px, 98px, 0); }
+            55% { clip: rect(5px, 9999px, 46px, 0); }
+            60% { clip: rect(82px, 9999px, 31px, 0); }
+            65% { clip: rect(54px, 9999px, 27px, 0); }
+            70% { clip: rect(28px, 9999px, 99px, 0); }
+            75% { clip: rect(45px, 9999px, 69px, 0); }
+            80% { clip: rect(23px, 9999px, 85px, 0); }
+            85% { clip: rect(54px, 9999px, 84px, 0); }
+            90% { clip: rect(45px, 9999px, 47px, 0); }
+            95% { clip: rect(37px, 9999px, 20px, 0); }
+            100% { clip: rect(4px, 9999px, 91px, 0); }
+        }
+        
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            5% { clip: rect(52px, 9999px, 74px, 0); }
+            10% { clip: rect(79px, 9999px, 85px, 0); }
+            15% { clip: rect(75px, 9999px, 5px, 0); }
+            20% { clip: rect(67px, 9999px, 61px, 0); }
+            25% { clip: rect(14px, 9999px, 79px, 0); }
+            30% { clip: rect(1px, 9999px, 66px, 0); }
+            35% { clip: rect(86px, 9999px, 30px, 0); }
+            40% { clip: rect(23px, 9999px, 98px, 0); }
+            45% { clip: rect(85px, 9999px, 72px, 0); }
+            50% { clip: rect(71px, 9999px, 75px, 0); }
+            55% { clip: rect(2px, 9999px, 48px, 0); }
+            60% { clip: rect(30px, 9999px, 16px, 0); }
+            65% { clip: rect(59px, 9999px, 50px, 0); }
+            70% { clip: rect(41px, 9999px, 62px, 0); }
+            75% { clip: rect(2px, 9999px, 82px, 0); }
+            80% { clip: rect(47px, 9999px, 73px, 0); }
+            85% { clip: rect(3px, 9999px, 27px, 0); }
+            90% { clip: rect(40px, 9999px, 86px, 0); }
+            95% { clip: rect(45px, 9999px, 78px, 0); }
+            100% { clip: rect(62px, 9999px, 101px, 0); }
+        }
+
+        /* Tournament Card */
+
+        .tournament-card{
+          position: relative;
+          overflow: hidden;
+          transition: all .4s calc(.175, .885, .32, 1.275);
+          background: linear-gradient(145deg, #1e293b, #1a2535);
+          border: 1px solid rgba(255,255,255,.05);
+        }
+
+        .tournament-card::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          height: 100%;
+          width: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.05), transparent);
+          transition: left .7s ease;
+        }
+
+        .tournament-card:hover::before{
+          left: 100%;
+        }
+        .tournament-card:hover{
+          transform: translateY(-10px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(139,92,246,.2);
+          border-color: rgba(139,92,246,.3);
+        }
+
+        .tournament-badge{
+          position: absolute;
+          top: 15px;
+          right: -30px;
+          background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+          color: white;
+          padding: 5px 40px;
+          transform: rotate(45deg);
+          font-size: .75rem;
+          font-weight: bold;
+          box-shadow: 0 2px 10px rgba(0,0,0,.3);
+        }
+
+        /* Live Match */
+        .live-match-widget{
+          position: relative;
+          background: linear-gradient(145deg, #1e293b, #1a2535);
+          border: 1px solid rgba(255,255,255,.1);
+          overflow: hidden;
+        }
+
+        .live-match-widget::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background: linear-gradient(90deg, #ef4444, #dc2626);
+        }
+
+        .live-pulse{
+          animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+          0%{ box-shadow: 0 0 0 0 rgba(239, 68, 68,.7);}
+          70%{box-shadow: 0 0 0 10px rgba(239, 68, 68,.0);}
+          100%{box-shadow: 0 0 0 0 rgba(239, 68, 68,.0);}
+        }
+
+        .bracket-container{
+          position: relative;
+          overflow-x: hidden;
+        }
+
+        .bracket-match{
+          background: rgba(30,41, 59, .7);
+          padding: 15px;
+          border-radius: 10px;
+          border: 1px solid rgba(255,255,255,.0);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .bracket-match::before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 4px;
+          height: 100%;
+          background: linear-gradient(180deg, var(--neon-purple), var(--neon-blue));
+          opacity: 0;
+          transition: opacity .3s ease;
+        }
+
+        .bracket-match:hover::before{
+          opacity: 1;
+        }
+
+        .bracket-match:hover{
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(0,0,0,.2);
+        }
+
+        .bracket-match.final-match{
+          background: linear-gradient(145deg, rgba(139,92,246,.1), rgba(59, 130, 246, .5));
+
+        }
+
+        .team-card{
+          background: linear-gradient(145deg, #1e293b, #1a2535);
+          border-radius: 12px;
+          overflow: hidden;
+          transition: all .3s ease;
+          border: 1px solid rgba(255,255,255,.05);
+          position: relative;
+        }
+
+        .team-card:hover{
+          transform: translateY(-8px);
+          box-shadow: 0 15px 30px rgba(0,0,0,.3);
+          border-color: rgba(139,92,246,.3);
+        }
+
+        .team-logo{
+          height: 80px;
+          width: 80px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.8rem;
+          font-weight: bold;
+          color: white;
+          margin: 0 auto;
+          margin-top: -40px;
+          position: relative;
+          z-index: 1;
+          border: 4px solid #1e293b;
+          box-shadow: 0 5px 15px rgba(0,0,0,.3);
+        }
+
+
+        .state-counter{
+          font-size: 3rem;
+          font-weight: 900;
+          background: linear-gradient(45deg, var(--neon-purple), var(--neon-blue));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          line-height: 1;
+          position: relative;
+        }
+
+        .state-counter::after{
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 50px;
+          height: 3px;
+          background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+          
+        }
+
+        .gradient-text{
+          background: linear-gradient(var(--neon-purple), var(--neon-blue), var(--neon-cyan));
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          display: inline-block;
+
+        }
+
+        /* Progress Bar */
+
+        .progress-bar{
+          height: 8px;
+          background: rgba(255,255,255,.1);
+          border-radius: 4px;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .progress-bar-fill{
+          height: 100%;
+          background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+          border-radius: 4px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .progress-bar-fill::after{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+          animation: shimmer 2s infinite;
+        }
+        
   
+
+}
+
+@layer base{
+  nav{
+    backdrop-filter: blur(10px);
+    background: rgba(15,23,42,.85) !important;
+    transition: var(--trannstion);
+    box-shadow: 0 4px 30px rgba(0,0,0,.1);
+
+  }
+
+  nav.scrolled{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgba(15,23,42,.95) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    
+  }
 
 }
